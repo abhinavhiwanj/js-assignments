@@ -30,7 +30,15 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    let result = num;
+    if(!(num % 3) && !(num % 5)) {
+       result =  'FizzBuzz';
+    } else if(!(num % 3)) {
+        result = 'Fizz';
+    } else if(!(num % 5)) {
+        result = 'Buzz';
+    }
+    return result;
 }
 
 

@@ -22,7 +22,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-    return value1 + value2;
+    return value1.concat(value2);
 }
 
 
@@ -69,7 +69,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    throw new Error('Not implemented');
+    return value.slice(7,-1);
 }
 
 
@@ -201,11 +201,10 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    // let topRow = '┌'+ '─'.repeat(width-2) + '┐'+ '\n';
-    // let middleRow = ('|' + ' '.repeat(width-2) + '|' + '\n').repeat(height-2);
-    // let bottomRow = '└' + '─'.repeat(width-2) + '┘'+ '\n';
-    // return topRow + middleRow + bottomRow;
-    throw new Error('Not implemented');
+    let topRow = '┌'+ '─'.repeat(width-2) + '┐'+ '\n';
+    let middleRow = ('│' + ' '.repeat(width-2) + '│' + '\n').repeat(height-2);
+    let bottomRow = '└' + '─'.repeat(width-2) + '┘'+ '\n';
+    return topRow + middleRow + bottomRow;
 }
 
 
@@ -239,6 +238,7 @@ function encodeToRot13(str) {
     return resultStr;
 }
 
+
 /**
  * Returns true if the value is string; otherwise false.
  * @param {string} value
@@ -253,11 +253,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    let result = false;
-    if (value) {
-        result = true;
-    }
-    return result;
+    return value instanceof String || typeof value === 'string';
 }
 
 
@@ -286,24 +282,11 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    let resultIndex ;
-    if(value.charAt(0) )
-    switch (value.charAt(1)) {
-        case '♣':
-
-            break;
-        case '♦':
-            break;
-        case '♥':
-            break;
-        case '♠':
-            break;
-        default:
-            break;
-    }
-
-
-    return resultIndex;
+    var cardDeck = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
+                    'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
+                    'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
+                    'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+    return cardDeck.indexOf(value);
 }
 
 

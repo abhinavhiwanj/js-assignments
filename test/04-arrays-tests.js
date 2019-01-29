@@ -464,16 +464,20 @@ describe('04-arrays-tasks', function() {
             {
                 arr:      [],
                 expected: []
-            }, {
+            },
+             {
                 arr:      [ 'nine','one' ],
-                expected: [ 'one', 'nine' ]
-            }, {
+                 expected: [ 'one', 'nine' ]
+             },
+            {
                 arr:      [ 'one','two','three' ],
                 expected: [ 'one','two', 'three' ]
-            }, {
+            }, 
+            {
                 arr:      [ 'nine','eight','nine','eight' ],
                 expected: [ 'eight','eight','nine','nine' ]
-            }, {
+            }, 
+            {
                 arr:      [ 'one','one','one','zero' ],
                 expected: [ 'zero','one','one','one' ]
             }, {
