@@ -31,7 +31,7 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-   throw new Error('Not implemented');
+   return /\{[A-F0-9]{8}-([A-F0-9]{4}-){3}[A-F0-9]{12}\}/i;
 }
 
 
@@ -53,8 +53,8 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-   throw new Error('Not implemented');
-}
+   return /\w*p.t\w*/;
+} 
 
 
 /**
