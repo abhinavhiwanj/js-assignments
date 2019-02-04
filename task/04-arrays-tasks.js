@@ -504,7 +504,9 @@ function getIntervalArray(start, end) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-   throw new Error('Not implemented');  
+   let map = new Map();
+   array.map((item) =>   map.set(keySelector(item), !map.has(keySelector(item)) ? [valueSelector(item)] : map.get(keySelector(item)).concat([valueSelector(item)])));
+   return map;
 }
 
 
@@ -561,31 +563,15 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-   // let middle = Math.floor(arr.length/2);
-   // console.log(middle);console.log(arr);
-   
-   // if(middle === 0)
-   // 	return arr;
-   
-   // return arr.map((number,index) => {
-   //    if(index < middle ) {
-   //       if(arr.length % 2) {
-   //          return arr[index + middle + 1];
-   //       } else {
-   //          return arr[index + middle];
-   //       }
-   //    } else if(index > middle ) {
-   //       if(arr.length % 2) {
-   //          return arr[index - (middle + 1)];
-   //       } else {
-   //          return arr[index - middle];
-   //       }
-   //    } else{
-   //    	return arr[index];
-   //    }
-   // });   
-   throw new Error('Not implemented');
-}
+     let result;
+     let middle = Math.floor(arr.length / 2);
+     if(arr.length % 2) {
+        result = arr.slice(middle + 1).concat(arr.slice(middle ,middle + 1).concat(arr.slice(0,middle)));
+     } else {
+        result = arr.slice(middle).concat(arr.slice(0,middle));
+     }
+     return result;
+  }
 
 
 module.exports = {
